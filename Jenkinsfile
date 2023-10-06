@@ -16,7 +16,7 @@ pipeline {
 
         stage('Build image') {
             steps{
-             sh 'mvn spring-boot:build-image -DskipTests'
+             sh 'docker build . -t ostock/configserver:0.0.1-SNAPSHOT'
             }
         }
 
