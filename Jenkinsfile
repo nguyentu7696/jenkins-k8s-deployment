@@ -1,5 +1,10 @@
 pipeline {
 
+    environment {
+        dockerimagename = "ostock/configserver:0.0.1-SNAPSHOT"
+        dockerImage = ""
+    }
+
     agent any
 
     tools {
@@ -16,7 +21,9 @@ pipeline {
 
         stage('Build image') {
             steps{
-                sh 'docker build -t ostock/configserver:0.0.1-SNAPSHOT .'
+                script {
+                  dockerImage = docker.build dockerimagename
+                }
             }
         }
 
