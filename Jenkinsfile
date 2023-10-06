@@ -16,7 +16,7 @@ pipeline {
 
         stage('Build image') {
             steps{
-             sh 'docker build . -t ostock/configserver:0.0.1-SNAPSHOT'
+                sh 'docker build -t ostock/configserver:0.0.1-SNAPSHOT .'
             }
         }
 
